@@ -3,7 +3,7 @@
 
     Removes local TimeMachine backups
 
-    (c) 2018 Alex Merkel
+    (c) 2019 Alex Merkel
     See LICENSE file
 """
 
@@ -19,6 +19,8 @@ def main():
 
     if isroot():
         backups = getbackups()
+        print(stylize("Local backups:", colored.attr("bold")))
+        print("\n".join([b.decode("utf-8") for b in backups]))
         if backups:
             msg = stylize("Are you sure you want to delete all local backups?",
                           colored.fg("yellow") + colored.attr("bold"))
